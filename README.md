@@ -26,6 +26,7 @@ A document editor to collab with your friends/colleagues. Similiar to google doc
 
 ## What does Tracky.js give you?
 Tracky.js gives you insights in your user's behaviour on your website. Based on these insights you can improve your website.
+![Analytics screenshot](analytics-screenshot.jpg)
 
 ## Wishlist
 MoSCoW
