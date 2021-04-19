@@ -6,15 +6,26 @@
 [Live Demo]()
 
 ## Table of contents
+- [Concepts](#concepts)
+- [Wishlist](#wishlist)
+- [Data lifecycle diagram](#data-lifecycle-diagram)
+- [Used packages](#used-packages)
+- [Install project](#install-project)
+- [Sources](#sources)
 
 ## Concepts
 ### Tracking tool
+A tracking tool to track your user behaviour on your website. You can present the data yourself in your own admin panel. 
 
 ### Multiplayer casino game
+A roulette game where users can join a gameroom and play roulette together. With a chat to chat together.
+![Roulette game](roulette-concept.jpg)
 
 ### Google docs clone
+A document editor to collab with your friends/colleagues. Similiar to google docs.
 
 ## What does Tracky.js give you?
+Tracky.js gives you insights in your user's behaviour on your website. Based on these insights you can improve your website.
 
 ## Wishlist
 MoSCoW
