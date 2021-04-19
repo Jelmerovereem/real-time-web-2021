@@ -34,6 +34,7 @@ MoSCoW
 **M** - Must haves
 
 - [x] Track amount live users
+- [x] Show visited pages per user
 
 **S** - Should haves
 
