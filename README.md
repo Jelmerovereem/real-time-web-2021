@@ -21,16 +21,17 @@ MoSCoW
 
 **M** - Must haves
 
-[] Track amount live users
-[]
+- [x] Track amount live users
 
 **S** - Should haves
-[] Simple implementation
+
+- [ ] Simple implementation
 
 **C** - Could haves
-[]
+
 
 **W** - Would haves
+
 
 ## Data lifecycle diagram
 ![lifecycle diagram](data-cycle-diagram.jpg)
@@ -47,15 +48,13 @@ This can be done by typing the following line of code into your terminal:
 git clone https://github.com/Jelmerovereem/real-time-web-2021.git
 ```
 
-### 2. :computer: Install the packages
+### 2. Install the packages
 
 Next, we will have to install the used packages.
 
 ```
 npm install
 ```
-
-<br/>
 
 ### 3. Start local dev environment
 
