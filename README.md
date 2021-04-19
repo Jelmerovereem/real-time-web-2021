@@ -3,7 +3,7 @@
 ## App description
 **Tracky.js**: A tracking tool/implementation to track user behaviour on your website.
 
-[Live Demo]()
+[Live Demo](https://trackyjs.herokuapp.com/)
 
 ## Table of contents
 - [Concepts](#concepts)
