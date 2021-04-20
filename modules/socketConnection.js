@@ -3,6 +3,7 @@ import addUser from "./addUserDB.js";
 import updateUser from "./updateUserDB.js";
 import updateAdminLiveUsers from "./updateAdminLiveUsers.js";
 import * as fs from "fs";
+import geoip from "geoip-lite";
 
 export default function socketHandling(req, res) {
 	let adminChannel = io.of("/adminChannel");
@@ -26,8 +27,10 @@ export default function socketHandling(req, res) {
 		socket.on("pageChange", async (userData) => {
 			const sHeaders = socket.handshake.headers;
 			const clientIp = socket.request.connection.remoteAddress;
-			console.log(clientIp);
-			console.log(sHeaders['x-forwarded-for'], sHeaders['x-forwarded-port']);
+			//console.log(clientIp);
+			//console.log(, sHeaders['x-forwarded-port']);
+			const location = geoip.lookup(sHeaders['x-forwarded-for']);
+			console.log(location);
 			userData.socketId = socket.id;
 			if (userData.userId) {
 				liveUser = userData;

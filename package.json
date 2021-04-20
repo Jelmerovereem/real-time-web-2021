@@ -28,6 +28,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "file-system": "^2.2.2",
+    "geoip-lite": "^1.4.2",
     "node-fetch": "^2.6.1",
     "socket.io": "^4.0.1"
   },
