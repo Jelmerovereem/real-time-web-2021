@@ -24,11 +24,16 @@ import routes from "./modules/controllers/routes.js";
 
 import socketHandling from "./modules/socketConnection.js";
 
-app.use(session({
+const sessionMiddleware = session({
 	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: true
-}));
+});
+
+app.use(sessionMiddleware);
+io.use((socket, next) =>{
+	sessionMiddleware(socket.request, socket.request.res || {}, next);
+})
 
 app.use(express.static("static"));
 app.use(bodyParser.urlencoded({extended: true}));
