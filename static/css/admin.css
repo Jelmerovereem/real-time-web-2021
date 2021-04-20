@@ -1,0 +1,16 @@
+@import url("./modules/admin/header.css");
+@import url("./modules/admin/liveUsers.css");
+@import url("./modules/admin/analytics.css");
+
+* {
+	margin: 0;
+}
+
+body {
+	font-family: 'poppins';
+}
+
+h2 {
+	margin-left: 40px;
+	margin-bottom: 20px;
+}

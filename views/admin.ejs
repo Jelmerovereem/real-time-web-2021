@@ -4,13 +4,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Admin</title>
+	<link rel="stylesheet" href="css/admin.css">
 	<script src="/socket.io/socket.io.js"></script>
-	<script src="js/admin.js" defer></script>
+	<script src="js/libraries/lodash.js" defer></script>
+	<script src="js/admin.js" type="module" defer></script>
 </head>
 <body>
-	<h1>admin</h1>
-	<div class="panel">
-		
-	</div>
+	<header>
+		<h1>Tracky.js</h1>
+	</header>
+	<h2>Analytics</h2>
+	<section class="analytics-block">
+		<h3>Live Users</h3>
+		<p class="counter"></p>
+		<div class="liveUsersContainer"></div>
+		<div class="panel">
+			
+		</div>
+	</section>
 </body>
 </html>

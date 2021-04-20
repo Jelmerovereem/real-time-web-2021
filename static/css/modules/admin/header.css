@@ -1,0 +1,13 @@
+header {
+	background: darkgreen;
+	width: 100%;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+header>h1 {
+	color: white;
+	margin-left: 40px;
+}

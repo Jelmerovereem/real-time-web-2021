@@ -1,0 +1,14 @@
+.liveUsersContainer {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.counter {
+	font-size: 24px;
+}
+
+.userContainer {
+	padding: 10px;
+	border: 1px solid grey;
+	margin: 10px;
+}
