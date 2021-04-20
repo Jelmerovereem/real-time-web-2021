@@ -19,14 +19,14 @@ A tracking tool to track your user behaviour on your website. You can present th
 
 ### Multiplayer casino game
 A roulette game where users can join a gameroom and play roulette together. With a chat to chat together.
-![Roulette game](roulette-concept.jpg)
+![Roulette game](readme_assets/roulette-concept.jpg)
 
 ### Google docs clone
 A document editor to collab with your friends/colleagues. Similiar to google docs.
 
 ## What does Tracky.js give you?
 Tracky.js gives you insights in your user's behaviour on your website. Based on these insights you can improve your website.
-![Analytics screenshot](analytics-screenshot.jpg)
+![Analytics screenshot](readme_assets/analytics-screenshot.jpg)
 
 ## Wishlist
 MoSCoW
@@ -47,7 +47,7 @@ MoSCoW
 
 
 ## Data lifecycle diagram
-![lifecycle diagram](data-cycle-diagram.jpg)
+![lifecycle diagram](readme_assets/data-cycle-diagram.jpg)
 
 ## Used packages
 
