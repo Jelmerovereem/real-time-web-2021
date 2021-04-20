@@ -15,7 +15,8 @@ export default function updateUser(userData, socket) {
 					usersData.push({
 						user: userId,
 						socketId: socket.id,
-						visitedPages: [userData.page]
+						visitedPages: [userData.page],
+						location: userData.location
 					})
 					fs.writeFile("users.json", JSON.stringify(usersData), (err) => err ? console.log(err) : "")
 				}
@@ -23,14 +24,16 @@ export default function updateUser(userData, socket) {
 				fs.writeFile("users.json", JSON.stringify([{
 					user: userId,
 					socketId: socket.id,
-					visitedPages: [userData.page]
+					visitedPages: [userData.page],
+					location: userData.location
 				}]), (err) => err ? console.log(err) : "")
 			}
 		} else {
 			fs.writeFile("users.json", JSON.stringify([{
 				user: userId,
 				socketId: socket.id,
-				visitedPages: [userData.page]
+				visitedPages: [userData.page],
+				location: userData.location
 			}]), (err) => err ? console.log(err) : "")
 		}
 	} catch(err) {

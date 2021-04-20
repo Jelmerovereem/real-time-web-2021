@@ -1,6 +1,7 @@
 @import url("./modules/admin/header.css");
 @import url("./modules/admin/liveUsers.css");
 @import url("./modules/admin/analytics.css");
+@import url("./modules/admin/liveMap.css");
 
 * {
 	margin: 0;

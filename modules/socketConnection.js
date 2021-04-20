@@ -21,17 +21,15 @@ export default function socketHandling(req, res) {
 				io.emit("usersConnected", connectedUsers);
 				console.log("updating admin on user disconnect")
 				updateAdminLiveUsers(connectedUsers);
-			}, 10000)
+			}, 5000)
 		})
 
 		socket.on("pageChange", async (userData) => {
 			const sHeaders = socket.handshake.headers;
-			const clientIp = socket.request.connection.remoteAddress;
-			//console.log(clientIp);
 			console.log(sHeaders['x-forwarded-for']);
 			console.log(geoip.lookup(sHeaders['x-forwarded-for']))
-			//const location = geoip.lookup(sHeaders['x-forwarded-for']);
-			const location = geoip.lookup("77.167.183.59");
+			const location = geoip.lookup(sHeaders['x-forwarded-for']);
+			//const location = geoip.lookup("77.167.183.59");
 			userData.location = location;
 			userData.socketId = socket.id;
 			if (userData.userId) {
