@@ -28,9 +28,11 @@ export default function socketHandling(req, res) {
 			const sHeaders = socket.handshake.headers;
 			const clientIp = socket.request.connection.remoteAddress;
 			//console.log(clientIp);
-			//console.log(, sHeaders['x-forwarded-port']);
-			const location = geoip.lookup(sHeaders['x-forwarded-for']);
-			console.log(location);
+			console.log(sHeaders['x-forwarded-for']);
+			console.log(geoip.lookup(sHeaders['x-forwarded-for']))
+			//const location = geoip.lookup(sHeaders['x-forwarded-for']);
+			const location = geoip.lookup("77.167.183.59");
+			userData.location = location;
 			userData.socketId = socket.id;
 			if (userData.userId) {
 				liveUser = userData;
@@ -38,14 +40,12 @@ export default function socketHandling(req, res) {
 			}
 			const response = await updateUser(userData, socket);
 			if (response === "ok") {
-				console.log("updating admin live on pageChange")
 				updateAdminLiveUsers(connectedUsers);
 			}
 			//adminChannel.emit("alertAdmin", userData);
 		})
 	})
 	adminChannel.on("connection", (socket) => {
-		console.log("admin connected")
 		updateAdminLiveUsers(connectedUsers)
 	})
 }
