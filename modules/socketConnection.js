@@ -26,11 +26,14 @@ export default function socketHandling(req, res) {
 
 		socket.on("pageChange", async (userData) => {
 			const sHeaders = socket.handshake.headers;
-			console.log(sHeaders['x-forwarded-for']);
-			console.log(geoip.lookup(sHeaders['x-forwarded-for']))
 			const location = geoip.lookup(sHeaders['x-forwarded-for']);
-			//const location = geoip.lookup("77.167.183.59");
-			userData.location = location;
+			if (location) {
+				userData.location = location;
+			} else {
+				userData.location = {
+					city: "Amsterdam"
+				}
+			}
 			userData.socketId = socket.id;
 			if (userData.userId) {
 				liveUser = userData;
