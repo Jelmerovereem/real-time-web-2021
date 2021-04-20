@@ -4,8 +4,14 @@ function renderHome(req, res) {
 	});
 }
 
+function renderSecondPage(req, res) {
+	res.render("secondPage.ejs", {
+		userId: req.sessionID
+	})
+}
+
 function renderAdmin(req, res) {
 	res.render("admin.ejs");
 }
 
-export { renderHome, renderAdmin };
+export { renderHome, renderSecondPage, renderAdmin };
