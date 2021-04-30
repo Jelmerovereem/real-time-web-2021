@@ -122,19 +122,18 @@ async function getCityname({lat, lng}) {
 
 
 ## Used packages
-* body-parser
-* dotenv
-* ejs
-* express
-* express-session
-* file-system
-* geoip-lite
-* node-fetch
-* socket.io
+* [body-parser](https://www.npmjs.com/package/body-parser)
+* [dotenv](https://www.npmjs.com/package/dotenv)
+* [ejs](https://www.npmjs.com/package/ejs)
+* [express](https://www.npmjs.com/package/express)
+* [express-session](https://www.npmjs.com/package/express-session)
+* [geoip-lite](https://www.npmjs.com/package/geoip-lite)
+* [node-fetch](https://www.npmjs.com/package/node-fetch)
+* [socket.io](https://www.npmjs.com/package/socket.io)
 
 ### Dev
-* localhost-logger
-* nodemon
+* [localhost-logger](https://www.npmjs.com/package/localhost-logger)
+* [nodemon](https://www.npmjs.com/package/nodemon)
 
 ## Install project
 ### 1. Clone this repo
