@@ -13,10 +13,12 @@ async function getCityname({lat, lng}) {
 export default function updateUserEls(liveUsers) {
 	if (liveUsers.length > 0) { // als er live users zijn
 		counter.textContent = liveUsers.length;
+
 		const correctUsers = liveUsers.filter((v,i,a) => a.findIndex(t=>(t.user === v.user))===i); // filter duplicate users
 		counter.textContent = correctUsers.length;
+		
 		liveUsers.forEach( async userData => {
-			if (userData.location.city === "") {
+			if (userData.location.city === "") { // als de locatie geen stadsnaam heeft, krijg een stadsnaam via api
 				const city = await getCityname({
 					lat: userData.location.ll[0],
 					lng: userData.location.ll[1]
@@ -24,22 +26,38 @@ export default function updateUserEls(liveUsers) {
 				userData.location.city = city;
 			}
 			const existingUser = document.querySelector(`[data-userid="${userData.user}"]`);
-			if (!existingUser) { // als die niet bestaat
+			if (!existingUser) { // als die niet al op de pagina bestaat
 				//const liveIndex = liveUsers.findIndex(obj => obj.user === existingUser.)
+				/* Maak een element aan voor de user */
 				const ElContainer = document.createElement("div");
 				ElContainer.classList.add("userContainer");
 				ElContainer.dataset.userid = userData.user;
 				ElContainer.dataset.location = userData.location.city;
+				
 				const userTitle = document.createElement("h3");
+				userTitle.textContent = userData.user;
+				ElContainer.append(userTitle);
+				
 				const visitedPagesUl = document.createElement("ul");
+				visitedPagesUl.classList.add("visitedPagesList");
 				userData.visitedPages.forEach(page => {
 					const liHtml = document.createElement("li");
 					liHtml.textContent = page;
 					visitedPagesUl.append(liHtml);
 				})
-				userTitle.textContent = userData.user;
-				ElContainer.append(userTitle);
 				ElContainer.append(visitedPagesUl);
+
+				if (userData.cartData) {
+					const cartDataEl = document.createElement("ul");
+					cartDataEl.classList.add("cartDataList");
+					userData.cartData.forEach(product => {
+						const liHtml = document.createElement("li");
+						liHtml.textContent = product.productName;
+						cartDataEl.append(liHtml);
+					})
+					ElContainer.append(cartDataEl);	
+				}
+				
 				liveUsersContainer.append(ElContainer);
 
 				// light up blue on map
@@ -55,17 +73,39 @@ export default function updateUserEls(liveUsers) {
 						})
 					}
 				})
-			} else {
+			} else { // user bestaat al wel op pagina
 				const liveIndex = liveUsers.findIndex(obj => obj.user === existingUser.dataset.userid);
-				if (liveIndex != -1) {
-					const visitedPagesList = existingUser.querySelector("ul");
+				if (liveIndex != -1) { // user is nog steeds live
+
+					const visitedPagesList = existingUser.querySelector(".visitedPagesList");
 					visitedPagesList.innerHTML = "";
 					userData.visitedPages.forEach(page => {
 						const liHtml = document.createElement("li");
 						liHtml.textContent = page;
 						visitedPagesList.append(liHtml);
 					})
-				} else {
+					
+					const cartDataList = existingUser.querySelector(".cartDataList");
+					if (userData.cartData && !cartDataList) { // als er wel cartdata is maar nog niet op pagina
+						const cartDataEl = document.createElement("ul");
+						cartDataEl.classList.add("cartDataList");
+						userData.cartData.forEach(product => {
+							const liHtml = document.createElement("li");
+							liHtml.textContent = product.productName;
+							cartDataEl.append(liHtml);
+						})
+						existingUser.append(cartDataEl);	
+					} else if (cartDataList) { // als al wel cartdata is en ookal op pagina
+						cartDataList.innerHTML = "";
+						if (userData.cartData) {
+							userData.cartData.forEach(product => {
+								const liHtml = document.createElement("li");
+								liHtml.textContent = product.productName;
+								cartDataList.append(liHtml);
+							})
+						}
+					}
+				} else { // als user niet meer live is maar wel op de pagina
 					geojson.eachLayer((layer) => {
 						if (layer.feature.properties.name === existingUser.dataset.location) {
 							if (layer.feature.properties.liveCount) {
@@ -81,6 +121,7 @@ export default function updateUserEls(liveUsers) {
 			}
 		})
 
+		/* remove user that aren't live but on page */
 		const allUserElements = document.querySelectorAll(".userContainer");
 		allUserElements.forEach(el => {
 			const elLiveIndex = liveUsers.findIndex(obj => obj.user === el.dataset.userid);
@@ -98,7 +139,7 @@ export default function updateUserEls(liveUsers) {
 				el.remove()
 			}
 		})
-	} else {
+	} else { // als er geen live users zijn
 		geojson.eachLayer((layer) => {
 			layer.setStyle({
 				fillColor: "#FFEDA0"

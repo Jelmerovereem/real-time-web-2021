@@ -35,7 +35,7 @@ export default function socketHandling(req, res) {
 				}
 			}
 			userData.socketId = socket.id;
-			if (userData.userId) {
+			if (userData.user) {
 				liveUser = userData;
 				liveUser.disconnected = false;
 			}
@@ -44,6 +44,15 @@ export default function socketHandling(req, res) {
 				updateAdminLiveUsers(connectedUsers);
 			}
 			//adminChannel.emit("alertAdmin", userData);
+		})
+
+		socket.on("addToCart", async (data) => {
+			liveUser.cartData = data.cartData;
+			delete liveUser.page;
+			const response = await updateUser(liveUser, socket);
+			if (response === "ok") {
+				updateAdminLiveUsers(connectedUsers);
+			}
 		})
 	})
 	adminChannel.on("connection", (socket) => {

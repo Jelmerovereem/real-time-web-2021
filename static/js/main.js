@@ -1,5 +1,5 @@
 export const socket = io();
-const userId = document.querySelector(`input[name="userId"]`).value;
+export const userId = document.querySelector(`input[name="userId"]`).value;
 
 const userData = {
 	page: location.pathname,
