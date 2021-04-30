@@ -63,7 +63,53 @@ MoSCoW
 ## Data lifecycle diagram
 ![lifecycle diagram](readme_assets/data-cycle-diagram.jpg)
 
+## Data
+To get all the different Dutch cities I downloaded a _Netherlands Townships GeoJSON_ from [webuildinternet.com](https://www.webuildinternet.com/2015/07/09/geojson-data-of-the-netherlands/).
+
+## API
+### Live map
+To show a interactive live map I use [leaflet.js](https://leafletjs.com/). It's very simple to set up a map:
+```js
+const liveMap = L.map("liveMap", {zoomControl: true}).setView([lat, lng], 5);
+L.tileLayer(apiMapboxUrlRaster, {
+	id: "mapbox/light-v9",
+	tileSize: 512,
+	zoomOffset: -1,
+	accessToken: mapboxAccessToken
+}).addTo(liveMap);
+```
+After this I lay the dutch cities over the map:
+```js
+import { netherlandsTownshipsGeoJSON } from "./utils/netherlandsTownships.js";
+
+let geojson = L.geoJson(netherlandsTownshipsGeoJSON, {style: getGeoStyle}).addTo(liveMap);
+```
+
+### City names
+The external API I use is the [OpenCage Geocoding API](https://opencagedata.com/). This API will help to show the visitors location on the map. Through IP address I try to get the visitors location, but not always the location comes with a city name. So with OpenCage I can search on coordinates to get a city name. I compare this city name with the _Netherlands Townships GeoJSON_.
+```js
+async function getCityname({lat, lng}) {
+	const data = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}`).then(res => res.ok ? res.json() : "");
+	const city = data.results[0].components.city;
+	return city;
+}
+```
+
+
 ## Used packages
+* body-parser
+* dotenv
+* ejs
+* express
+* express-session
+* file-system
+* geoip-lite
+* node-fetch
+* socket.io
+
+### Dev
+* localhost-logger
+* nodemon
 
 ## Install project
 ### 1. Clone this repo
