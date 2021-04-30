@@ -51,10 +51,14 @@ MoSCoW
 - [ ] View user data on the interactive map with a tooltip
 - [ ] Visitors could visit checkout page and fill in details
 - [ ] Admin could see what visitors are filling in at the checkout
-- [ ] Simple implementation
+- [ ] An implementation(as library) so other website owners can track their users aswell
+- [ ] User data saved in firestores databases
 
 **W** - Won't haves
-
+- [ ] Documentation on how to use library/tool
+- [ ] Different tracking segments splitted in different functions
+- [ ] As addition a public domain for website owners to log onto a standard dashboard and see their analytics
+- [ ] Maybe a tool to pair Google Analytics and Facebook Pixel to exchange data
 
 ## Data lifecycle diagram
 ![lifecycle diagram](readme_assets/data-cycle-diagram.jpg)
