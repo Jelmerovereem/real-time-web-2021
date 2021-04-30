@@ -20,7 +20,6 @@ import { Server as socketIO } from "socket.io";
 export const io = new socketIO(server);
 
 import routes from "./modules/controllers/routes.js";
-//import posts from "./modules/controllers/posts.js";
 
 import socketHandling from "./modules/socketConnection.js";
 
@@ -41,7 +40,6 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
 routes();
-//posts();
 
 socketHandling();
 

@@ -43,7 +43,6 @@ export default function socketHandling(req, res) {
 			if (response === "ok") {
 				updateAdminLiveUsers(connectedUsers);
 			}
-			//adminChannel.emit("alertAdmin", userData);
 		})
 
 		socket.on("addToCart", async (data) => {
