@@ -76,6 +76,16 @@ MoSCoW
 ## Data lifecycle diagram
 ![lifecycle diagram](readme_assets/data-cycle-diagram.jpg)
 
+### Events
+* Visitor connects to website
+   -> alert admin that there is a new live user
+* Visitor visits page
+   -> update users "database"
+      -> alert admin of new events
+* Visitor adds product to cart
+   -> update users "database"
+      -> alert admin of new events
+
 ## Data
 To get all the different Dutch cities I downloaded a _Netherlands Townships GeoJSON_ from [webuildinternet.com](https://www.webuildinternet.com/2015/07/09/geojson-data-of-the-netherlands/).
 
