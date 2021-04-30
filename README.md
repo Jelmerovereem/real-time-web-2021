@@ -28,6 +28,7 @@ A document editor to collab with your friends/colleagues. Similiar to google doc
 Tracky.js gives you insights in your user's behaviour on your website. Based on these insights you can improve your website and generate more sales!
 This library tracks your visitors visits, page visits, add to carts, location, and go so on.
 With a interactive map you can view where your users come from.
+
 **Features:**  
 - Track (amount of) live visitor
 - Track visited pages per visitor
