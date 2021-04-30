@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= productData.name %></title>
+	<base href="/">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="/socket.io/socket.io.js" defer></script>
+	<script src="js/main.js" type="module" defer></script>
+	<script src="js/productPage.js" type="module" defer></script>
+</head>
+<body>
+	<input type="hidden" name="userId" value="<%= userId %>">
+	<%- include("partials/header.ejs") %>
+	<main>
+		<section class="product">
+			<img src="assets/product_placeholder.jpg" class="productpage-img" alt="">
+			<div class="product-data">
+				<p><%= productData.name %></p>
+				<p><%= productData.price / 100 %></p>
+				<a href="javascript:void(0)" class="btn atc" data-productid="<%= productData.id %>" data-productname="<%= productData.name %>">Toevoegen aan winkelmand</a>
+			</div>
+		</section>
+	</main>
+</body>
+</html>
