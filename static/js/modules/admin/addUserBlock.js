@@ -49,13 +49,15 @@ export default function updateUserEls(liveUsers) {
 
 				if (userData.cartData) {
 					const cartDataEl = document.createElement("ul");
+					const cartDataTitle = `<p>Add to carts</p>`;
 					cartDataEl.classList.add("cartDataList");
 					userData.cartData.forEach(product => {
 						const liHtml = document.createElement("li");
 						liHtml.textContent = product.productName;
 						cartDataEl.append(liHtml);
 					})
-					ElContainer.append(cartDataEl);	
+					ElContainer.append(cartDataEl);
+					cartDataEl.insertAdjacentHTML("beforebegin", cartDataTitle);
 				}
 				
 				liveUsersContainer.append(ElContainer);
@@ -88,13 +90,15 @@ export default function updateUserEls(liveUsers) {
 					const cartDataList = existingUser.querySelector(".cartDataList");
 					if (userData.cartData && !cartDataList) { // als er wel cartdata is maar nog niet op pagina
 						const cartDataEl = document.createElement("ul");
+						const cartDataTitle = `<p>Add to carts</p>`;
 						cartDataEl.classList.add("cartDataList");
 						userData.cartData.forEach(product => {
 							const liHtml = document.createElement("li");
 							liHtml.textContent = product.productName;
 							cartDataEl.append(liHtml);
 						})
-						existingUser.append(cartDataEl);	
+						existingUser.append(cartDataEl);
+						cartDataEl.insertAdjacentHTML("beforebegin", cartDataTitle);
 					} else if (cartDataList) { // als al wel cartdata is en ookal op pagina
 						cartDataList.innerHTML = "";
 						if (userData.cartData) {
