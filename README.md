@@ -25,7 +25,20 @@ A roulette game where users can join a gameroom and play roulette together. With
 A document editor to collab with your friends/colleagues. Similiar to google docs.
 
 ## What does Tracky.js give you?
-Tracky.js gives you insights in your user's behaviour on your website. Based on these insights you can improve your website.
+Tracky.js gives you insights in your user's behaviour on your website. Based on these insights you can improve your website and generate more sales!
+This library tracks your visitors visits, page visits, add to carts, location, and go so on.
+With a interactive map you can view where your users come from.
+**Features:**  
+- Track (amount of) live visitor
+- Track visited pages per visitor
+- Show admin amount of live visitors
+- Show admin the visited pages per visitor
+- Visitors can view products
+- Visitors can add product to cart
+- Admin can see live carts
+- Get location of visitor through IP address
+- View location of visitors in admin page on a interactive map
+
 ![Analytics screenshot](readme_assets/analytics-screenshot.jpg)
 
 ## Wishlist
