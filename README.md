@@ -160,3 +160,7 @@ http://localhost:9000/
 
 
 ## Sources
+* _Netherlands Townships GeoJSON_ from [webuildinternet.com](https://www.webuildinternet.com/2015/07/09/geojson-data-of-the-netherlands/)
+* [Socket.io](https://www.socket.io/)
+* [leaflet.js](https://leafletjs.com/)
+* [OpenCage Geocoding API](https://opencagedata.com/)
