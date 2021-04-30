@@ -33,17 +33,27 @@ MoSCoW
 
 **M** - Must haves
 
-- [x] Track amount live users
-- [x] Show visited pages per user
+- [x] Track (amount of) live visitor
+- [x] Track visited pages per visitor
+- [x] Show admin amount of live visitors
+- [x] Show admin the visited pages per visitor
 
 **S** - Should haves
-
-- [ ] Simple implementation
+- [x] Visitors can view products
+- [x] Visitors can add product to cart
+- [x] Admin can see live carts
+- [x] Get location of visitor through IP address
+- [x] View location of visitors in admin page on a interactive map
 
 **C** - Could haves
+- [ ] Remove products from cart
+- [ ] Admin can see total cart values
+- [ ] View user data on the interactive map with a tooltip
+- [ ] Visitors could visit checkout page and fill in details
+- [ ] Admin could see what visitors are filling in at the checkout
+- [ ] Simple implementation
 
-
-**W** - Would haves
+**W** - Won't haves
 
 
 ## Data lifecycle diagram
